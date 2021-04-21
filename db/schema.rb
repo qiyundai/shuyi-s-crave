@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_21_030642) do
+ActiveRecord::Schema.define(version: 2021_04_21_152645) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -66,6 +66,18 @@ ActiveRecord::Schema.define(version: 2021_04_21_030642) do
     t.index ["recipe_id"], name: "index_instructions_on_recipe_id"
   end
 
+  create_table "recipe_ingredients", force: :cascade do |t|
+    t.integer "recipe_id", null: false
+    t.integer "ingredient_id", null: false
+    t.boolean "main"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "unit_id"
+    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
+    t.index ["unit_id"], name: "index_recipe_ingredients_on_unit_id"
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.integer "category_id", null: false
     t.integer "user_id", null: false
@@ -84,6 +96,24 @@ ActiveRecord::Schema.define(version: 2021_04_21_030642) do
     t.index ["instruction_id"], name: "index_steps_on_instruction_id"
   end
 
+  create_table "units", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
   add_foreign_key "attempts", "steps"
   add_foreign_key "attempts", "users"
   add_foreign_key "comments", "recipes"
@@ -91,6 +121,9 @@ ActiveRecord::Schema.define(version: 2021_04_21_030642) do
   add_foreign_key "ingredients", "recipes"
   add_foreign_key "ingredients", "units"
   add_foreign_key "instructions", "recipes"
+  add_foreign_key "recipe_ingredients", "ingredients"
+  add_foreign_key "recipe_ingredients", "recipes"
+  add_foreign_key "recipe_ingredients", "units"
   add_foreign_key "recipes", "categories"
   add_foreign_key "recipes", "users"
   add_foreign_key "steps", "instructions"
