@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = policy_scope(Recipe).order(created_at: :desc)
+    authorize @recipes
   end
 
   def new
@@ -44,4 +45,5 @@ class RecipesController < ApplicationController
   def set_recipe
     @recipe = Recipe.find(params[:id])
     authorize @recipe
+  end
 end
