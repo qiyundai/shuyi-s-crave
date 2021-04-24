@@ -3,22 +3,21 @@ class RecipePolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
-    def index?
-      true
-    end
+  def show?
+    true
+  end
 
-    def create?
-      true
-    end
+  def create?
+    true
+  end
 
-    def update?
-    end
+  def update?
+    true
+  end
 
-    def show?
-    end
-
-    def destroy?
-    end
+  def destroy?
+    true
   end
 end
