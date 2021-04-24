@@ -1,5 +1,12 @@
-<%= simple_form_for @recipe do |f| %>
-  <%= f.input :name, label: "Recipe Name" %>
-  <%= f.input :story %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container text-center">
+  <form class="form-simple">
+    <label for="name">Recipe Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <label for="story">Story:</label><br>
+    <input type="text" id="story" name="story"><br>
+    <label for="ingredient">Ingredients Needed</label><br>
+    
+    <label for="submit"></label><br>
+    <input type="submit" value="Submit"><br>
+  </form>
+</div>
