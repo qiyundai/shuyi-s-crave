@@ -1,7 +1,11 @@
 // Place all the styles related to the recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css");
+
 .form-simple {
+  font-family: 'Rosarivo', serif;
+
   input[type=text] {
     width: 100%;
     padding: 12px 20px;
@@ -9,22 +13,36 @@
     box-sizing: border-box;
     border-radius: 5px;
     border: solid 1px rgba(0, 0, 0, 0.856);
+
+    &:hover {
+      box-shadow: inset 0px 0px 5px 0px grey;
+      transition: 0.2s;
+      outline: none;
+    }
+
+    &:focus {
+      box-shadow: inset 0px 0px 5px 0px grey;
+      transition: 0.2s;
+      outline: none;
+    }
   }
 
-  input[type=text]:focus {
-    box-shadow: inset 0px 0px 5px 0px grey;
-    transition: 0.2s;
-    outline: none;
-  }
+  input[type=submit] {
+    background-color: white;
+    border: none;
 
-  input[type=text]:hover {
-    box-shadow: inset 0px 0px 5px 0px grey;
-    transition: 0.2s;
-    outline: none;
+    &:hover {
+      border-bottom: solid 1px black;
+      transition: 0.2s;
+    }
   }
 
   #story {
     height: 200px;
   }
-}
 
+  #ingredient-add:hover {
+    text-shadow: 0 0 2px grey;
+    transition: 0.2s;
+  }
+}
