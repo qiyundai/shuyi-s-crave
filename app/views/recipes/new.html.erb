@@ -6,9 +6,9 @@
   <%= form.text_area :story %>
   <%= form.label :ingredient, "Ingredients Needed" %>
   <div class="line-ingredient">
-    <%= form.text_field :ingredient, class:"ingredient", placeholder:"Ingredient" %>
-    <%= form.text_field :amount, class:"amount", placeholder:"Amount" %>
-    <%= form.text_field :unit, class:"unit", placeholder:"Unit" %>
+    <%= form.text_field :ingredients, name:"ingredient[]", class:"ingredient", placeholder:"Ingredient" %>
+    <%= form.text_field :amount, name:"amount[]", class:"amount", placeholder:"Amount" %>
+    <%= form.text_field :unit, name:"unit[]", class:"unit", placeholder:"Unit" %>
   </div>
   <%= image_tag "icons/plus-circle.svg", :alt => "add", id:"ingredient-add" %><br>
   <%= form.submit "Create Recipe" %>
