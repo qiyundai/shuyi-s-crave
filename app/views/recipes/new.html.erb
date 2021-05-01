@@ -1,17 +1,4 @@
 <div class="container text-center">
-  <form class="form-simple" action="/recipes" method="post" accept-charset="UTF-8">
-    <label for="name">Recipe Name:</label><br>
-    <input type="text" id="name" name="name"><br>
-    <label for="story">Story:</label><br>
-    <textarea type="text" id="story" name="story"></textarea><br>
-    <label for="ingredient">Ingredients Needed</label><br>
-    <div class="line-ingredient">
-      <input type="text" class="ingredient" name="ingredient" placeholder="Ingredient"><input type="text" class="amount" name="amount" placeholder="Amount"><input type="text" class="unit" name="unit" placeholder="Unit">
-    </div>
-    <label for="submit"></label><br>
-    <input type="submit" value="Submit"><br>
-  </form>
-
   <%= form_with url: "/recipes", class:"form-simple", method: :post do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
