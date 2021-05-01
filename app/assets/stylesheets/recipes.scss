@@ -5,6 +5,8 @@
 
 .form-simple {
   font-family: 'Rosarivo', serif;
+  display: flex;
+  flex-direction: column;
 
   textarea, input[type=text] {
     width: 100%;
@@ -27,6 +29,42 @@
     }
   }
 
+  .line-ingredient {
+    flex-direction: row;
+  }
+
+  input.ingredient {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0x;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: solid 1px rgba(0, 0, 0, 0.856);
+  }
+
+  input.amount {
+    width: 25%;
+    padding: 12px 20px;
+    margin: 8px 0px;
+    margin-left: 8px;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: solid 1px rgba(0, 0, 0, 0.856);
+  }
+
+  input.unit {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    margin-left: 8px;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: solid 1px rgba(0, 0, 0, 0.856);
+  }
+
   input[type=submit] {
     background-color: white;
     border: none;
@@ -41,8 +79,14 @@
     height: 200px;
   }
 
+  #ingredient-add {
+    margin-top: 10px;
+    height: 16px;
+    width: 16px;
+    margin: 10px auto;
+  }
+  
   #ingredient-add:hover {
-    text-shadow: 0 0 2px grey;
-    transition: 0.2s;
+    cursor: pointer;
   }
 }
